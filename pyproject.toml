@@ -1,0 +1,64 @@
+[project]
+name = "reflex-generate"
+version = "0.1.0"
+description = "A CLI for Reflex to automatically generate resources, inspired by Rails"
+readme = "README.md"
+authors = [
+    { name = "NoOPeEKS", email = "arnauapps@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "click>=8.2.1",
+]
+
+[project.scripts]
+reflex-generate = "reflex_generate.reflex_generate:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "ruff>=0.11.11",
+]
+
+[tool.ruff]
+target-version = "py310"
+output-format = "concise"
+lint.isort.split-on-trailing-comma = false
+lint.select = [
+  "ANN001",
+  "B",
+  "C4",
+  "D",
+  "E",
+  "ERA",
+  "F",
+  "FURB",
+  "I",
+  "N",
+  "PERF",
+  "PGH",
+  "PTH",
+  "RUF",
+  "SIM",
+  "T",
+  "TRY",
+  "UP",
+  "W",
+]
+lint.ignore = [
+  "B008",
+  "D205",
+  "E501",
+  "F403",
+  "SIM115",
+  "RUF006",
+  "RUF008",
+  "RUF012",
+  "TRY0",
+  "UP038",
+]
+lint.pydocstyle.convention = "google"
