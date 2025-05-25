@@ -1,23 +1,20 @@
 """Reflex-Generate CLI to create HTTP Resources for Reflex apps."""
 
-import sys
 from importlib import metadata
-from importlib.util import find_spec
 
 import click
 
-
-def check_dependencies():
-    """Checks if reflex is installed as a dependency."""
-    if not find_spec("reflex"):
-        sys.stdout.write("You must have `reflex` installed before using this app\n")
-        exit(1)
+from reflex_generate.generator import ModelGenerator
+from reflex_generate.parser import ModelParser
+from reflex_generate.utils import get_app_root
 
 
 @click.group()
 @click.version_option(metadata.version("reflex-generate"), message="%(version)s")
 def cli():
     """Reflex-Generate CLI to create HTTP Resources for Reflex apps."""
+    from reflex_generate.utils import check_dependencies
+
     check_dependencies()
     pass
 
@@ -35,7 +32,9 @@ def scaffold(model_name: str, fields: tuple[str, ...]):
 @click.argument("fields", nargs=-1)
 def model(model_name: str, fields: tuple[str, ...]):
     """Subcommand for managing the creation of models."""
-    pass
+    parser = ModelParser(model_name, fields)
+    generator = ModelGenerator(parser, get_app_root())
+    generator.generate()
 
 
 if __name__ == "__main__":

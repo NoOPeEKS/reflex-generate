@@ -29,8 +29,8 @@ class ModelParser:
         Returns:
             Self
         """
-        self.model_name = model_name
-        self.fields = self._parse_fields(fields)
+        self._model_name = model_name
+        self._fields = self._parse_fields(fields)
 
     def _parse_fields(self, fields: tuple[str, ...]) -> dict[str, str]:
         """
@@ -56,3 +56,13 @@ class ModelParser:
             field_dict[name] = _type
 
         return field_dict
+
+    @property
+    def fields(self):
+        """Returns the parsed and validated fields of the model."""
+        return self._fields
+
+    @property
+    def model_name(self):
+        """Returns the model name."""
+        return self._model_name
