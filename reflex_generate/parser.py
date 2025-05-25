@@ -4,7 +4,17 @@ from typing import Self
 
 
 class ModelParser:
-    """TODO: Docstring this."""
+    """
+    Parses and validates model field definitions provided in 'name:type' format.
+
+    This class processes a model name and a tuple of field strings, ensuring
+    that each field has a valid type. The resulting field data can be used
+    for generating model representations such as classes, schemas, or files.
+
+    Attributes:
+        model_name (str): The name of the model being parsed.
+        fields (dict[str, str]): A dictionary mapping field names to their validated types.
+    """
 
     ALLOWED_TYPES = {"int", "float", "string", "bool", "date", "datetime"}
 
