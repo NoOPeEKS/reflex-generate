@@ -61,5 +61,6 @@ lint.ignore = [
   "RUF012",
   "TRY0",
   "UP038",
+  "D212",
 ]
 lint.pydocstyle.convention = "google"
