@@ -30,5 +30,13 @@ def scaffold(model_name: str, fields: tuple[str, ...]):
     pass
 
 
+@cli.command()
+@click.argument("model_name", nargs=1)
+@click.argument("fields", nargs=-1)
+def model(model_name: str, fields: tuple[str, ...]):
+    """Subcommand for managing the creation of models."""
+    pass
+
+
 if __name__ == "__main__":
     cli()
