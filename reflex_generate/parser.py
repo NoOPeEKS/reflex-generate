@@ -16,7 +16,7 @@ class ModelParser:
         fields (dict[str, str]): A dictionary mapping field names to their validated types.
     """
 
-    ALLOWED_TYPES = {"int", "float", "string", "bool", "date", "datetime"}
+    ALLOWED_TYPES = {"int", "float", "str", "bool", "date", "datetime"}
 
     def __init__(self, model_name: str, fields: tuple[str, ...]) -> Self:
         """

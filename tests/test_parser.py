@@ -8,11 +8,11 @@ from reflex_generate.parser import ModelParser
 def test_valid_model_parsing():
     """Test that valid model definitions are parsed correctly."""
     model_name = "User"
-    fields = ("name:string", "age:int", "is_active:bool")
+    fields = ("name:str", "age:int", "is_active:bool")
     parser = ModelParser(model_name, fields)
 
     assert parser.model_name == "User"
-    assert parser.fields == {"name": "string", "age": "int", "is_active": "bool"}
+    assert parser.fields == {"name": "str", "age": "int", "is_active": "bool"}
 
 
 def test_invalid_type_raises_error():
