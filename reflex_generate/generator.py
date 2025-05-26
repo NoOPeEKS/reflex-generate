@@ -74,7 +74,7 @@ class ModelGenerator:
         # Importing the model at `rxconfig.py` (this is temporary, should be where the index view is stored)
         import_statement_rxconfig = (
             f"from {self._app_name}.models "
-            f"import {self._parser.model_name.lower()}\n\n"
+            f"import {self._parser.model_name}\n\n"
         )
 
         rxconfig_path = Path(self._app_root / "rxconfig.py")
