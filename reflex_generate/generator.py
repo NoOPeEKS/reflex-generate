@@ -33,7 +33,7 @@ class ModelGenerator:
         Returns:
             None
         """
-        lines = [f"class {self._parser.model_name}(rx.Model, table=True):"]
+        lines = [f"import reflex as rx\n\nclass {self._parser.model_name}(rx.Model, table=True):"]
         for k, v in self._parser.fields.items():
             lines.append(f"    {k}: {v}")
         model = "\n".join(lines)

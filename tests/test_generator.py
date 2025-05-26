@@ -53,7 +53,10 @@ def test_generate_writes_correct_content(sample_parser, temp_app_root):
     generator.generate()
 
     expected_content = (
-        "class User(rx.Model, table=True):\n" + "    name: str\n" + "    age: int\n"
+        "import reflex as rx\n\n"
+        + "class User(rx.Model, table=True):\n"
+        + "    name: str\n"
+        + "    age: int\n"
     )
     actual_content = Path(temp_app_root / "models" / "user.py").read_text()
     assert expected_content == actual_content
