@@ -6,15 +6,13 @@ import click
 
 from reflex_generate.generator import ModelGenerator
 from reflex_generate.parser import ModelParser
-from reflex_generate.utils import get_app_root
+from reflex_generate.utils import check_dependencies, get_app_root
 
 
 @click.group()
 @click.version_option(metadata.version("reflex-generate"), message="%(version)s")
 def cli():
     """Reflex-Generate CLI to create HTTP Resources for Reflex apps."""
-    from reflex_generate.utils import check_dependencies
-
     check_dependencies()
     pass
 
